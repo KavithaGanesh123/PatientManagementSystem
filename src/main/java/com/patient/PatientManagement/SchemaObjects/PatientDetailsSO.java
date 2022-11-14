@@ -5,11 +5,13 @@ import java.util.List;
 
 public class PatientDetailsSO {
 	
+	private long patient_id;
+	
 	private String patientName;
 	
 	private Date patientDOB;
 	
-	private Integer patientAadharNum;
+	private List<patientIdentifierSO> patientIdentifiers;
 	
 	private List<AddressListSO> patientAddresses;
 	
@@ -17,6 +19,20 @@ public class PatientDetailsSO {
 	private Integer contactNumber;
 	
 	private Integer alternateContactNumber;
+
+	/**
+	 * @return the patient_id
+	 */
+	public long getPatient_id() {
+		return patient_id;
+	}
+
+	/**
+	 * @param patient_id the patient_id to set
+	 */
+	public void setPatient_id(long patient_id) {
+		this.patient_id = patient_id;
+	}
 
 	/**
 	 * @return the patientName
@@ -44,20 +60,6 @@ public class PatientDetailsSO {
 	 */
 	public void setPatientDOB(Date patientDOB) {
 		this.patientDOB = patientDOB;
-	}
-
-	/**
-	 * @return the patientAadharNum
-	 */
-	public Integer getPatientAadharNum() {
-		return patientAadharNum;
-	}
-
-	/**
-	 * @param patientAadharNum the patientAadharNum to set
-	 */
-	public void setPatientAadharNum(Integer patientAadharNum) {
-		this.patientAadharNum = patientAadharNum;
 	}
 
 	/**
@@ -101,6 +103,20 @@ public class PatientDetailsSO {
 	 */
 	public void setAlternateContactNumber(Integer alternateContactNumber) {
 		this.alternateContactNumber = alternateContactNumber;
+	}
+
+	/**
+	 * @return the patientIdentifiers
+	 */
+	public List<patientIdentifierSO> getPatientIdentifiers() {
+		return patientIdentifiers;
+	}
+
+	/**
+	 * @param patientIdentifiers the patientIdentifiers to set
+	 */
+	public void setPatientIdentifiers(List<patientIdentifierSO> patientIdentifiers) {
+		this.patientIdentifiers = patientIdentifiers;
 	}
 	
 

@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.patient.PatientManagement.SchemaObjects.AddressListSO;
 
 @Entity
 @Table(name = "PATIENT_HDR")
@@ -29,9 +28,12 @@ public class Patient {
 	
 	private Date patientDOB;
 	
-	private Integer patientAadharNum;
+
+	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "patient", fetch = FetchType.LAZY)
 	
-	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "patientAddress", fetch = FetchType.LAZY)
+	private List<PatientIdentifier> patientIdentifier;
+
+	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "patient", fetch = FetchType.LAZY)
 	
 	private List<PatientAddress> patientAddresses;
 	
@@ -68,19 +70,7 @@ public class Patient {
 		this.patientDOB = patientDOB;
 	}
 
-	/**
-	 * @return the patientAadharNum
-	 */
-	public Integer getPatientAadharNum() {
-		return patientAadharNum;
-	}
-
-	/**
-	 * @param patientAadharNum the patientAadharNum to set
-	 */
-	public void setPatientAadharNum(Integer patientAadharNum) {
-		this.patientAadharNum = patientAadharNum;
-	}
+	
 
 
 	/**
@@ -137,6 +127,14 @@ public class Patient {
 	 */
 	public void setPatientAddresses(List<PatientAddress> patientAddresses) {
 		this.patientAddresses = patientAddresses;
+	}
+
+	public List<PatientIdentifier> getPatientIdentifier() {
+		return patientIdentifier;
+	}
+
+	public void setPatientIdentifier(List<PatientIdentifier> patientIdentifier) {
+		this.patientIdentifier = patientIdentifier;
 	}
 
 }
